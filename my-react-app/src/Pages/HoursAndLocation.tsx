@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function HoursLocation() {
+function HoursAndLocation() {
     return (
         <>
             <h1>Hours and Location</h1>
@@ -9,4 +9,4 @@ function HoursLocation() {
     );
 }
 
-export default HoursLocation;
+export default HoursAndLocation;
