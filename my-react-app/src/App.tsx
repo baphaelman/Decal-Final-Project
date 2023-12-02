@@ -21,6 +21,8 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/menu-item" element={<MenuItem />} />
                     <Route path="/reservation" element={<Reservation />} />
+                    <Route path="/payment" element={<Payment />} />
+                    <Route path="/confirmation" element={<Confirmation />} />
                 </Routes>
             </BrowserRouter>
         </>
