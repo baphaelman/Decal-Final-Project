@@ -1,3 +1,30 @@
+:root{
+  --black: black;
+  --white: white;
+  --red100: #FF6969;
+  --red80: #FF7E7E;
+  --red60: #FF9696;
+  --red40: #FFB0B0;
+  --red20: #FFDADA;
+  --red40hover: #e09797;
+}
+
+@font-face {
+  font-family: Sansation;
+  src: url(Sansation_Light.ttf);
+}
+
 body {
-  background: pink;
+  background: var(--white);
+  margin: 0;
+}
+
+/* Header */
+.header > a {
+  background-color: var(--red40);
+  transition: all ease 0.25s;
+}
+
+.header > a:hover {
+  background-color: var(--red40hover);
 }
