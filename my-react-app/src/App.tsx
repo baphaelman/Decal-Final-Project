@@ -6,21 +6,37 @@ import HoursAndLocation from './Pages/HoursAndLocation';
 import OurStory from './Pages/OurStory';
 import Cart from './Pages/Cart';
 import MenuItem from './Pages/MenuItem';
-import Reservation from './Pages/Reservation';
+import TimeAndDate from './Pages/TimeAndDate';
 import Payment from './Pages/Payment';
 import Confirmation from './Pages/Confirmation';
 
 function App() {
-    const [cart, setCart] = useState([{ name: 'paper bag' }]);
+    const [cart, setCart] = useState([
+        {
+            section: 'Miscellaneous',
+            name: 'paper bag',
+            price: 0.3,
+            image: './public/sushi_icon.png',
+            id: 0,
+            quantity: 1,
+            cartNumber: 0,
+        },
+    ]);
     const [currentItem, setCurrentItem] = useState(null);
     const addToCart = (currentItem) => {
         setCart([...cart, currentItem]);
-        console.log(cart);
+        setCartNumber(cartNumber + 1);
         setQuantity(1);
+        console.log(cart);
     };
 
     const [quantity, setQuantity] = useState(1);
-    let cartItem = { ...currentItem, quantity: quantity };
+    const [cartNumber, setCartNumber] = useState(1);
+    let cartItem = {
+        ...currentItem,
+        quantity: quantity,
+        cartNumber: cartNumber,
+    };
 
     return (
         <>
@@ -42,7 +58,7 @@ function App() {
                     />
                     <Route
                         path="/cart"
-                        element={<Cart cartItem={cartItem} />}
+                        element={<Cart cart={cart} cartNumber={cartNumber} />}
                     />
                     <Route
                         path="/menu-item"
@@ -58,7 +74,7 @@ function App() {
                             />
                         }
                     />
-                    <Route path="/reservation" element={<Reservation />} />
+                    <Route path="/time-and-date" element={<TimeAndDate />} />
                     <Route path="/payment" element={<Payment />} />
                     <Route path="/confirmation" element={<Confirmation />} />
                 </Routes>
