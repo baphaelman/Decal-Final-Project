@@ -11,12 +11,13 @@
 
 @font-face {
   font-family: Sansation;
-  src: url(Sansation_Light.ttf);
+  src: url(sansation/Sansation_Light.ttf);
 }
 
 body {
   background: var(--white);
   margin: 0;
+  font-family: Sansation;
 }
 
 /* Header */
@@ -27,4 +28,14 @@ body {
 
 .header > a:hover {
   background-color: var(--red40hover);
+  cursor: pointer;
+}
+
+/* General fonts from Figma */
+.heading-1 {
+  font-size: 4vw;
+}
+
+.heading-2 {
+  font-size: 3vw;
 }

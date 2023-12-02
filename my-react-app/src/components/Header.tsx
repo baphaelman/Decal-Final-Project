@@ -16,7 +16,6 @@ function Header() {
         textDecoration: 'none',
         textAlign: 'center',
         color: 'var(--black)',
-        fontSize: '50px',
         flex: '1',
         fontFamily: 'Sansation',
         margin: '0',
@@ -28,11 +27,16 @@ function Header() {
 
     return (
         <div style={headerStyle} className="header">
-            <a style={{ ...headerButtons, flex: '3', border: 'none' }} href="/">
+            <a
+                style={{ ...headerButtons, flex: '3', border: 'none' }}
+                href="/"
+                className="heading-1"
+            >
                 <img src="/sushi_icon.png" style={iconStyle}></img>
                 Daikichi Sushi Shop
             </a>
             <a
+                className="heading-2"
                 style={{
                     ...headerButtons,
                     borderRight: 'var(--red80) solid 0.5vw',
@@ -45,7 +49,11 @@ function Header() {
             >
                 Hours & Location
             </a>
-            <a style={{ ...headerButtons, border: 'none' }} href="our-story">
+            <a
+                className="heading-2"
+                style={{ ...headerButtons, border: 'none' }}
+                href="our-story"
+            >
                 Our Story
             </a>
         </div>
