@@ -9,18 +9,43 @@ import ItemOnMenu from '../components/ItemOnMenu';
 
 function Home({ currentItem, setCurrentItem, addToCart }) {
     const navigate = useNavigate();
+
+    const pageStyle = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '10vw',
+    };
+
+    const menuStyle = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        border: '12px solid var(--red40)',
+        borderRadius: '5vw',
+        marginLeft: '10vw',
+        marginRight: '10vw',
+        padding: '2vw',
+        width: '80vw',
+    };
+
     return (
         <>
             <Header />
-            {menuItems.map((menuItem) => (
-                <ItemOnMenu
-                    key={menuItem.id}
-                    id={menuItem.id}
-                    currentItem={currentItem}
-                    setCurrentItem={setCurrentItem}
-                />
-            ))}
-            <button onClick={() => navigate('/cart')}>Go To Cart</button>
+            <div style={pageStyle}>
+                <div className="heading-0">Menu</div>
+                <div style={menuStyle}>
+                    {menuItems.map((menuItem) => (
+                        <ItemOnMenu
+                            key={menuItem.id}
+                            id={menuItem.id}
+                            currentItem={currentItem}
+                            setCurrentItem={setCurrentItem}
+                        />
+                    ))}
+                </div>
+                <button onClick={() => navigate('/cart')}>Go To Cart</button>
+            </div>
         </>
     );
 }
