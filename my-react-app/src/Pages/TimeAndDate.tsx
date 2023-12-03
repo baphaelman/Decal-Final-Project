@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 
-function TimeAndDate({ order, setOrder, information, setInformation }) {
+function TimeAndDate({ information, setInformation }) {
     const navigate = useNavigate();
 
     const [time, setTime] = useState('');
     const [date, setDate] = useState('');
     const [comment, setComment] = useState('');
     const [showInput, setShowInput] = useState(false);
+
     const handleRadioChange = (event) => {
         if (event.target.value === 'future') {
             setShowInput(true);
@@ -25,7 +26,6 @@ function TimeAndDate({ order, setOrder, information, setInformation }) {
     }
 
     const setOrderInformation = () => {
-        setOrder({ ...order, information: information });
         navigate('/payment');
     };
 
@@ -88,7 +88,7 @@ function TimeAndDate({ order, setOrder, information, setInformation }) {
             />
             <button
                 onClick={() => {
-                    setOrderInformation();
+                    navigate('/payment');
                 }}
             >
                 Proceed to Payment

@@ -25,16 +25,16 @@ function App() {
         },
     ]);
     const [currentItem, setCurrentItem] = useState(null);
+    const [quantity, setQuantity] = useState(1);
+    const [cartNumber, setCartNumber] = useState(1);
+
     const addToCart = (currentItem) => {
         setCart([...cart, currentItem]);
         setOrder([cart]);
         setCartNumber(cartNumber + 1);
         setQuantity(1);
-        console.log(cart);
     };
 
-    const [quantity, setQuantity] = useState(1);
-    const [cartNumber, setCartNumber] = useState(1);
     let cartItem = {
         ...currentItem,
         quantity: quantity,
@@ -85,6 +85,16 @@ function App() {
                         path="/time-and-date"
                         element={
                             <TimeAndDate
+                                information={information}
+                                setInformation={setInformation}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/payment"
+                        element={
+                            <Payment
+                                cart={cart}
                                 order={order}
                                 setOrder={setOrder}
                                 information={information}
@@ -93,10 +103,14 @@ function App() {
                         }
                     />
                     <Route
-                        path="/payment"
-                        element={<Payment order={order} />}
+                        path="/confirmation"
+                        element={
+                            <Confirmation
+                                order={order}
+                                information={information}
+                            />
+                        }
                     />
-                    <Route path="/confirmation" element={<Confirmation />} />
                 </Routes>
             </BrowserRouter>
         </>
