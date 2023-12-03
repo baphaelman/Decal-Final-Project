@@ -16,6 +16,7 @@ function MenuItem({
         addToCart(cartItem);
         navigate('/');
     };
+
     return (
         <div>
             <h2>Menu Item Details</h2>
