@@ -22,7 +22,7 @@ function OurStory() {
             <div className="heading-0" style={{ textAlign: 'center'}}>Our Story</div>
             <br></br>
             <div style={menuStyle}>
-                    {<h2>Savor the essence of Japan at Daikichi Sushi. Since we began, we've been your go-to destination for authentic, handcrafted sushi. Our skilled chefs blend tradition with innovation, delivering a fresh and flavorful experience in every bite. Welcome to Daikichi, where sushi is an art form.
+                    {<h2 style= {{fontFamily: 'Varta'}}>Savor the essence of Japan at Daikichi Sushi. Since we began, we've been your go-to destination for authentic, handcrafted sushi. Our skilled chefs blend tradition with innovation, delivering a fresh and flavorful experience in every bite. Welcome to Daikichi, where sushi is an art form.
                     </h2>
                     }
                     <div style={{ textAlign: 'center' }}>
