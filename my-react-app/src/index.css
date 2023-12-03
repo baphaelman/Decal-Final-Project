@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Varta:wght@300&display=swap');
+
 :root{
   --black: black;
   --white: white;
@@ -7,6 +9,7 @@
   --red40: #FFB0B0;
   --red20: #FFDADA;
   --red40hover: #e09797;
+  --red80hover: #e17171;
 }
 
 @font-face {
@@ -17,7 +20,7 @@
 body {
   background: var(--white);
   margin: 0;
-  font-family: Sansation;
+  font-family: Varta;
 }
 
 /* Header */
@@ -31,11 +34,35 @@ body {
   cursor: pointer;
 }
 
+/* Menu */
+.add-button {
+  background-color: var(--red80);
+  transition: all ease 0.25s;
+}
+
+.add-button:hover {
+  background-color: var(--red80hover);
+  cursor: pointer;
+}
+
 /* General fonts from Figma */
+.heading-0 {
+  font-size: 5vw;
+  font-family: Sansation;
+
+}
+
 .heading-1 {
   font-size: 4vw;
+  font-family: Sansation;
 }
 
 .heading-2 {
   font-size: 3vw;
+  font-family: Sansation;
+}
+
+.basic {
+  font-size: 1.5vw;
+  font-family: Varta;
 }

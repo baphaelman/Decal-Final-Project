@@ -35,7 +35,7 @@ function App() {
         setQuantity(1);
     };
 
-    let cartItem = {
+    const cartItem = {
         ...currentItem,
         quantity: quantity,
         cartNumber: cartNumber,

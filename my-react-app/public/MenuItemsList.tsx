@@ -14,7 +14,7 @@ const menuItems = [
     },
     {
         section: 'Ramen',
-        name: 'Pizza',
+        name: 'Prawn & Yam Tempura',
         price: 12.99,
         image: './public/sushi_icon.png',
         id: 1,
