@@ -104,12 +104,7 @@ function App() {
                     />
                     <Route
                         path="/confirmation"
-                        element={
-                            <Confirmation
-                                order={order}
-                                information={information}
-                            />
-                        }
+                        element={<Confirmation information={information} />}
                     />
                 </Routes>
             </BrowserRouter>

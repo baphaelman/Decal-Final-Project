@@ -16,6 +16,7 @@ function TimeAndDate({ information, setInformation }) {
         if (event.target.value === 'future') {
             setShowInput(true);
         } else if (event.target.value === 'asap') {
+            setInformation({ time: 'asap', date: 'today' });
             setShowInput(false);
         }
     };
@@ -24,10 +25,6 @@ function TimeAndDate({ information, setInformation }) {
         setShowInput(false);
         setInformation({ time: time, date: date });
     }
-
-    const setOrderInformation = () => {
-        navigate('/payment');
-    };
 
     return (
         <>
