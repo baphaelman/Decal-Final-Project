@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './Pages/Home';
@@ -11,6 +11,8 @@ import Payment from './Pages/Payment';
 import Confirmation from './Pages/Confirmation';
 
 function App() {
+    const [order, setOrder] = useState([]);
+    const [information, setInformation] = useState({});
     const [cart, setCart] = useState([
         {
             section: 'Miscellaneous',
@@ -25,6 +27,7 @@ function App() {
     const [currentItem, setCurrentItem] = useState(null);
     const addToCart = (currentItem) => {
         setCart([...cart, currentItem]);
+        setOrder([cart]);
         setCartNumber(cartNumber + 1);
         setQuantity(1);
         console.log(cart);
@@ -37,6 +40,10 @@ function App() {
         quantity: quantity,
         cartNumber: cartNumber,
     };
+
+    useEffect(() => {
+        console.log('Order:', order);
+    }, [order]);
 
     return (
         <>
@@ -57,10 +64,6 @@ function App() {
                         element={<HoursAndLocation />}
                     />
                     <Route
-                        path="/cart"
-                        element={<Cart cart={cart} cartNumber={cartNumber} />}
-                    />
-                    <Route
                         path="/menu-item"
                         element={
                             <MenuItem
@@ -74,8 +77,25 @@ function App() {
                             />
                         }
                     />
-                    <Route path="/time-and-date" element={<TimeAndDate />} />
-                    <Route path="/payment" element={<Payment />} />
+                    <Route
+                        path="/cart"
+                        element={<Cart cart={cart} cartNumber={cartNumber} />}
+                    />
+                    <Route
+                        path="/time-and-date"
+                        element={
+                            <TimeAndDate
+                                order={order}
+                                setOrder={setOrder}
+                                information={information}
+                                setInformation={setInformation}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/payment"
+                        element={<Payment order={order} />}
+                    />
                     <Route path="/confirmation" element={<Confirmation />} />
                 </Routes>
             </BrowserRouter>

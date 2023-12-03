@@ -9,8 +9,22 @@ const menuItems = [
         section: 'Ramen',
         name: 'Tonkotsu Ramen Soup',
         price: 12.99,
-        image: './public/tonkatsu',
-        itemRoute: '/menu/tonkotsu-ramen-soup',
+        image: './public/sushi_icon.png',
+        id: 0,
+    },
+    {
+        section: 'Ramen',
+        name: 'Pizza',
+        price: 12.99,
+        image: './public/sushi_icon.png',
+        id: 1,
+    },
+    {
+        section: 'Ramen',
+        name: 'Soup',
+        price: 12.99,
+        image: './public/sushi_icon.png',
+        id: 2,
     },
 ];
 
