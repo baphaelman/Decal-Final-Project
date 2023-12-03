@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 function HoursAndLocation() {
     return (
         <>
-            <h1>Hours and Location</h1>
+            <Header />
+            <div className="heading-0">Hours and Location</div>
         </>
     );
 }
