@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Components/Header';
 import GoToCart from '../Components/GoToCart';
 
-function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
+function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
     const navigate = useNavigate();
 
     function countDecimalDigits(number) {
@@ -32,7 +32,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
     const imageStyle = {
         width: '35vw',
         height: '35vw',
-        border: '1vw solid var(--red40)',
+        border: '0.25vw solid var(--red40)',
         borderRadius: '3vw',
     };
 
@@ -41,6 +41,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: '7vw',
     };
 
     const imageDivStyle = {
@@ -53,7 +54,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
 
     const lineStyle = {
         margin: '0',
-        width: '0.5vw',
+        width: '0.25vw',
         height: '35vw',
         backgroundColor: 'var(--red20)',
         borderRadius: '100vw',
@@ -62,6 +63,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
     const informationStyle = {
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'flex-start',
         width: '46vw',
         marginLeft: '2vw',
         marginRight: '2vw',
@@ -78,21 +80,23 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         right: '2vw',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'center',
+        width: '65%',
     };
 
     const plusStyle = {
-        fontSize: '10vw',
+        fontSize: '5vw',
         borderRadius: '100vw 0 0 100vw',
         border: 'none',
-        borderRight: '0.5vw solid var(--red100)',
+        borderRight: '0.25vw solid var(--red100)',
         color: 'var(--white)',
     };
 
     const minusStyle = {
-        fontSize: '10vw',
+        fontSize: '5vw',
         borderRadius: '0 100vw 100vw 0',
         border: 'none',
-        borderLeft: '0.5vw solid var(--red100)',
+        borderLeft: '0.25vw solid var(--red100)',
         color: 'var(--white)',
     };
 
@@ -100,34 +104,40 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         fontFamily: 'Sansation-bold',
         margin: '0',
         padding: '0',
-        transform: 'translate(0, -3vw)',
+        transform: 'translate(0, -1.5vw)',
     };
 
     const addtoCartStyle = {
         color: 'var(--white)',
-        fontSize: '3vw',
+        fontSize: '2vw',
         fontFamily: 'Sansation-bold',
-        width: '25vw',
-        height: '6vw',
+        width: '17vw',
+        height: '3.3vw',
         border: 'none',
         borderRadius: '100vw',
+        marginTop: '2vw',
     };
 
     return (
         <div>
-            <GoToCart />
+            <GoToCart cartNumber={cartNumber} />
             <Header />
-            <p className="link">{'< MENU'}</p>
+            <p
+                className="link"
+                onClick={() => {
+                    navigate('/');
+                }}
+            >
+                {'< MENU'}
+            </p>
             <div className="page" style={{ marginTop: '0vw' }}>
-                <p className="heading-1" style={{ marginBottom: '1vw' }}>
-                    {cartItem.name}
-                </p>
                 <div style={itemStyle}>
                     <div style={imageDivStyle}>
                         <img src={cartItem.path} style={imageStyle} />
                     </div>
                     <div style={lineStyle}></div>
                     <div style={informationStyle}>
+                        <p className="heading-1">{cartItem.name}</p>
                         <p className="heading-2">
                             ${cartItem.price}
                             {countDecimalDigits(cartItem.price) === 1 && '0'}

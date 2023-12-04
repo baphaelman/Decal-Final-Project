@@ -7,7 +7,7 @@ import menuItems from '../../public/MenuItemsList';
 import ItemOnMenu from '../components/ItemOnMenu';
 import GoToCart from '../components/GoToCart';
 
-function Home({ currentItem, setCurrentItem }) {
+function Home({ currentItem, setCurrentItem, cartNumber }) {
     const menuStyle = {
         display: 'flex',
         justifyContent: 'space-between',
@@ -37,7 +37,7 @@ function Home({ currentItem, setCurrentItem }) {
                     ))}
                 </div>
             </div>
-            <GoToCart />
+            <GoToCart cartNumber={cartNumber} />
         </>
     );
 }

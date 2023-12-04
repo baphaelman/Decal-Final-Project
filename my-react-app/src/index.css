@@ -3,7 +3,7 @@
 :root{
   --black: black;
   --white: white;
-  --lightgrey: #b4b4b4;
+  --lightgrey: #ffeeee;
   --red100: #ff6969;
   --red80: #FF7E7E;
   --red60: #FF9696;
@@ -45,16 +45,17 @@ body {
 .link {
   position: absolute;
   left: 2vw;
-  top: 8vw;
+  top: 3vw;
   text-decoration: none;
-  font-size: 3vw;
+  font-size: 1.75vw;
   transition: all ease 0.25s;
   font-family: 'Sansation';
 }
 .link:hover {
-  font-size: 4vw;
-  transform: translateY(-1.70vw);
+  font-size: 1.85vw;
+  transform: translateY(-0.15vw);
   cursor: pointer;
+  text-decoration: underline;
 }
 
 /* General fonts from Figma */
@@ -122,8 +123,8 @@ body {
 .sign {
   background-color: var(--red40);
   transition: all ease 0.25s;
-  width: 9vw;
-  height: 7vw;
+  width: 4.5vw;
+  height: 3.5vw;
 }
 .sign:hover {
   background-color: var(--red40hover);

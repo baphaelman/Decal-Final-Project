@@ -55,6 +55,7 @@ function App() {
                             <Home
                                 currentItem={currentItem}
                                 setCurrentItem={setCurrentItem}
+                                cartNumber={cartNumber}
                             />
                         }
                     />
@@ -74,6 +75,7 @@ function App() {
                                 cartItem={cartItem}
                                 quantity={quantity}
                                 setQuantity={setQuantity}
+                                cartNumber={cartNumber}
                             />
                         }
                     />
