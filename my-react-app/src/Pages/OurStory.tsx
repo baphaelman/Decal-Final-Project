@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import sushi from '../components/sushi.png';
 
 function OurStory() {
-    const menuStyle = {
+    const borderStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
@@ -21,7 +21,7 @@ function OurStory() {
             <Header />
             <div className="heading-0" style={{ textAlign: 'center'}}>Our Story</div>
             <br></br>
-            <div style={menuStyle}>
+            <div style={borderStyle}>
                     {<h2 style= {{fontFamily: 'Varta'}}>Savor the essence of Japan at Daikichi Sushi. Since we began, we've been your go-to destination for authentic, handcrafted sushi. Our skilled chefs blend tradition with innovation, delivering a fresh and flavorful experience in every bite. Welcome to Daikichi, where sushi is an art form.
                     </h2>
                     }
