@@ -18,7 +18,7 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
     const containerStyle = {
         display: 'flex',
         alignItems: 'center',
-        margin: '3vw',
+        margin: '2vw',
     };
 
     const imageStyle = {
@@ -36,23 +36,24 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
     };
 
     const buttonStyle = {
-        width: '10vw',
+        width: '8vw',
         height: '4vw',
         border: 'none',
         borderRadius: '1.5vw',
     };
 
-    const nameStyle = {
+    const addToCartStyle = {
         margin: '0',
         padding: '0',
         transform: 'translate(0, 0.25vw)',
+        color: 'var(--white)',
     };
 
     return (
         <div style={containerStyle}>
             <img src={menuItems[id].path} style={imageStyle} />
             <div style={informationStyle} className="basic">
-                <p>{menuItems[id].name}</p>
+                <p className="title">{menuItems[id].name}</p>
                 <p>
                     ${menuItems[id].price}
                     {countDecimalDigits(menuItems[id].price) === 1 && '0'}
@@ -62,7 +63,9 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
                     onClick={handleClick}
                     style={buttonStyle}
                 >
-                    <p style={nameStyle}>Add to Cart</p>
+                    <p style={addToCartStyle} className="old-basic">
+                        Add
+                    </p>
                 </button>
             </div>
         </div>
