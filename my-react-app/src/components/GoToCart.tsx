@@ -31,6 +31,7 @@ function GoToCart({ cartNumber }) {
         color: 'var(--white)',
         marginLeft: '0.5vw',
         transform: 'translate(0, -1.25vw)',
+        fontFamily: 'Sansation-normal',
     };
 
     if (cartNumber > 1) {

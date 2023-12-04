@@ -76,12 +76,9 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
     };
 
     const signStyle = {
-        position: 'absolute',
-        right: '2vw',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-        width: '65%',
     };
 
     const plusStyle = {
@@ -104,18 +101,21 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
         fontFamily: 'Sansation-bold',
         margin: '0',
         padding: '0',
-        transform: 'translate(0, -1.5vw)',
+        transform: 'translate(0, -1.65vw)',
     };
 
     const addtoCartStyle = {
         color: 'var(--white)',
         fontSize: '2vw',
         fontFamily: 'Sansation-bold',
-        width: '17vw',
-        height: '3.3vw',
+        width: '10vw',
+        height: '7vw',
         border: 'none',
-        borderRadius: '100vw',
+        borderRadius: '2vw',
         marginTop: '2vw',
+        position: 'absolute',
+        right: '25vw',
+        bottom: '7vw',
     };
 
     return (
@@ -149,7 +149,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
                             {cartItem.description}
                         </p>
                         <div style={quantityContainerStyle}>
-                            <p className="heading-2">
+                            <p className="heading-2" style={{ width: '20vw' }}>
                                 quantity: {cartItem.quantity}
                             </p>
                             <div style={signStyle}>
@@ -168,21 +168,21 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
                                     <p style={boldStyle}>-</p>
                                 </button>
                             </div>
-                        </div>
-                        <div
-                            style={{
-                                display: 'flex',
-                                width: '100%',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <button
-                                onClick={() => handleClick()}
-                                className="old-basic add-to-cart"
-                                style={addtoCartStyle}
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                }}
                             >
-                                ADD TO CART
-                            </button>
+                                <button
+                                    onClick={() => handleClick()}
+                                    className="old-basic add-to-cart"
+                                    style={addtoCartStyle}
+                                >
+                                    ADD TO CART
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
