@@ -1,30 +1,22 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import Header from '../components/Header';
 
 import menuItems from '../../public/MenuItemsList';
 import ItemOnMenu from '../components/ItemOnMenu';
+import GoToCart from '../components/GoToCart';
 
-function Home({ currentItem, setCurrentItem, addToCart }) {
-    const navigate = useNavigate();
-
-    const pageStyle = {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop: '10vw',
-    };
-
+function Home({ currentItem, setCurrentItem, cartNumber }) {
     const menuStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        border: '12px solid var(--red40)',
+        border: '0.35vw solid var(--red40)',
         borderRadius: '5vw',
         marginLeft: '10vw',
         marginRight: '10vw',
+        marginBottom: '10vw',
         padding: '2vw',
         width: '80vw',
     };
@@ -32,20 +24,20 @@ function Home({ currentItem, setCurrentItem, addToCart }) {
     return (
         <>
             <Header />
-            <div style={pageStyle}>
+            <div className="page" style={{ marginTop: '3vw' }}>
                 <div className="heading-0">Menu</div>
                 <div style={menuStyle}>
                     {menuItems.map((menuItem) => (
                         <ItemOnMenu
-                            key={menuItem.id}
-                            id={menuItem.id}
+                            key={menuItem.number}
+                            id={menuItem.number}
                             currentItem={currentItem}
                             setCurrentItem={setCurrentItem}
                         />
                     ))}
                 </div>
-                <button onClick={() => navigate('/cart')}>Go To Cart</button>
             </div>
+            <GoToCart cartNumber={cartNumber} />
         </>
     );
 }

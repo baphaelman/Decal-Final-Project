@@ -3,18 +3,30 @@
 :root{
   --black: black;
   --white: white;
-  --red100: #FF6969;
+  --lightgrey: #ffeeee;
+  --red100: #ff6969;
   --red80: #FF7E7E;
   --red60: #FF9696;
   --red40: #FFB0B0;
   --red20: #FFDADA;
   --red40hover: #e09797;
-  --red80hover: #e17171;
+  --red80hover: #ffb3b3;
+  --red100hover: #ffb3b3;
 }
 
 @font-face {
   font-family: Sansation;
   src: url(sansation/Sansation_Light.ttf);
+}
+
+@font-face {
+  font-family: Sansation-normal;
+  src: url(sansation/Sansation_Regular.ttf);
+}
+
+@font-face {
+  font-family: Sansation-bold;
+  src: url(sansation/Sansation_Bold.ttf);
 }
 
 body {
@@ -23,46 +35,107 @@ body {
   font-family: Varta;
 }
 
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vw;
+}
+
+.link {
+  position: absolute;
+  left: 2vw;
+  top: 3vw;
+  text-decoration: none;
+  font-size: 1.75vw;
+  transition: all ease 0.25s;
+  font-family: 'Sansation';
+}
+.link:hover {
+  font-size: 1.85vw;
+  transform: translateY(-0.15vw);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* General fonts from Figma */
+.heading-0 {
+  font-size: 3vw;
+  font-family: Sansation;
+
+}
+
+.heading-1 {
+  font-size: 2vw;
+  font-family: Sansation;
+}
+
+.heading-2 {
+  font-size: 1.5vw;
+  font-family: Sansation;
+}
+
+.title {
+  font-size: 1vw;
+  font-family: Varta;
+}
+
+.old-basic {
+  font-size: 1vw;
+  font-family: Varta;
+}
+
+.basic {
+  font-size: 0.75vw;
+  font-family: Varta;
+}
+
 /* Header */
 .header > a {
   background-color: var(--red40);
   transition: all ease 0.25s;
 }
-
 .header > a:hover {
   background-color: var(--red40hover);
   cursor: pointer;
 }
 
 /* Menu */
-.add-button {
-  background-color: var(--red80);
+.go-to-cart-button {
+  background-color: var(--red100);
   transition: all ease 0.25s;
 }
-
-.add-button:hover {
-  background-color: var(--red80hover);
+.go-to-cart-button:hover {
+  background-color: var(--red100hover);
   cursor: pointer;
 }
 
-/* General fonts from Figma */
-.heading-0 {
-  font-size: 5vw;
-  font-family: Sansation;
-
+.add-button {
+  background-color: transparent;
+  transition: all ease 0.25s;
+}
+.add-button:hover {
+  background-color: var(--lightgrey);
+  cursor: pointer;
 }
 
-.heading-1 {
-  font-size: 4vw;
-  font-family: Sansation;
+/* MenuItem */
+.sign {
+  background-color: var(--red40);
+  transition: all ease 0.25s;
+  width: 4.5vw;
+  height: 3.5vw;
+}
+.sign:hover {
+  background-color: var(--red40hover);
+  cursor: pointer;
 }
 
-.heading-2 {
-  font-size: 3vw;
-  font-family: Sansation;
+.add-to-cart {
+  background-color: var(--red100);
+  transition: all ease 0.25s;
 }
-
-.basic {
-  font-size: 1.5vw;
-  font-family: Varta;
+.add-to-cart:hover {
+  background-color: var(--red100hover);
+  cursor: pointer;
 }
