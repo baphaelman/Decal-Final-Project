@@ -10,11 +10,15 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
         navigate('/menu-item');
     };
 
+    function countDecimalDigits(number) {
+        const decimalPart = number.toString().split('.')[1];
+        return decimalPart.length;
+    }
+
     const containerStyle = {
         display: 'flex',
         alignItems: 'center',
-        marginTop: '3vw',
-        marginBottom: '3vw',
+        margin: '2vw',
     };
 
     const imageStyle = {
@@ -25,37 +29,43 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
     };
 
     const informationStyle = {
-        width: '20vw',
+        width: '15vw',
         display: 'flex',
         flexDirection: 'column',
         marginLeft: '1vw',
     };
 
     const buttonStyle = {
-        width: '10vw',
+        width: '8vw',
         height: '4vw',
         border: 'none',
         borderRadius: '1.5vw',
     };
 
-    const nameStyle = {
+    const addToCartStyle = {
         margin: '0',
         padding: '0',
         transform: 'translate(0, 0.25vw)',
+        color: 'var(--white)',
     };
 
     return (
         <div style={containerStyle}>
-            <img src={menuItems[id].image} style={imageStyle} />
+            <img src={menuItems[id].path} style={imageStyle} />
             <div style={informationStyle} className="basic">
-                <p>{menuItems[id].name}</p>
-                <p>{menuItems[id].price}</p>
+                <p className="title">{menuItems[id].name}</p>
+                <p>
+                    ${menuItems[id].price}
+                    {countDecimalDigits(menuItems[id].price) === 1 && '0'}
+                </p>
                 <button
                     className="basic add-button"
                     onClick={handleClick}
                     style={buttonStyle}
                 >
-                    <p style={nameStyle}>Add to Cart</p>
+                    <p style={addToCartStyle} className="old-basic">
+                        Add
+                    </p>
                 </button>
             </div>
         </div>
