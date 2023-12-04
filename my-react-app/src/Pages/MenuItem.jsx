@@ -17,6 +17,18 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         navigate('/');
     };
 
+    const increase = () => {
+        if (quantity < 10) {
+            setQuantity(quantity + 1);
+        }
+    };
+
+    const decrease = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
     const imageStyle = {
         width: '35vw',
         height: '35vw',
@@ -61,6 +73,48 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         alignItems: 'center',
     };
 
+    const signStyle = {
+        position: 'absolute',
+        right: '2vw',
+    };
+
+    const plusStyle = {
+        width: '9vw',
+        height: '7vw',
+        fontSize: '10vw',
+        borderRadius: '100vw 0 0 100vw',
+        border: 'none',
+        borderRight: '0.5vw solid var(--red100)',
+        color: 'var(--white)',
+    };
+
+    const minusStyle = {
+        width: '9vw',
+        height: '7vw',
+        fontSize: '10vw',
+        borderRadius: '0 100vw 100vw 0',
+        border: 'none',
+        borderLeft: '0.5vw solid var(--red100)',
+        color: 'var(--white)',
+    };
+
+    const boldStyle = {
+        fontFamily: 'Sansation-bold',
+        margin: '0',
+        padding: '0',
+        transform: 'translate(0, -3vw)',
+    };
+
+    const addtoCartStyle = {
+        color: 'var(--white)',
+        fontSize: '3vw',
+        fontFamily: 'Sansation-bold',
+        width: '25vw',
+        height: '6vw',
+        border: 'none',
+        borderRadius: '100vw',
+    };
+
     return (
         <div>
             <GoToCart />
@@ -75,33 +129,52 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
                     </div>
                     <div style={lineStyle}></div>
                     <div style={informationStyle}>
-                        <p className="old-basic">
+                        <p className="heading-2">
                             ${cartItem.price}
                             {countDecimalDigits(cartItem.price) === 1 && '0'}
                         </p>
+                        <p
+                            className="heading-2"
+                            style={{ marginTop: '0', marginBottom: '2vw' }}
+                        >
+                            {cartItem.description}
+                        </p>
                         <div style={quantityContainerStyle}>
-                            <p className="old-basic">
+                            <p className="heading-2">
                                 quantity: {cartItem.quantity}
                             </p>
+                            <div style={signStyle}>
+                                <button
+                                    className="heading-2 sign"
+                                    onClick={increase}
+                                    style={plusStyle}
+                                >
+                                    <p style={boldStyle}>+</p>
+                                </button>
+                                <button
+                                    onClick={decrease}
+                                    className="heading-2 sign"
+                                    style={minusStyle}
+                                >
+                                    <p style={boldStyle}>-</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div
+                            style={{
+                                display: 'flex',
+                                width: '100%',
+                                justifyContent: 'center',
+                            }}
+                        >
                             <button
-                                className="old-basic"
-                                onClick={() => setQuantity(quantity + 1)}
+                                onClick={() => handleClick()}
+                                className="old-basic add-to-cart"
+                                style={addtoCartStyle}
                             >
-                                +
-                            </button>
-                            <button
-                                onClick={() => setQuantity(quantity - 1)}
-                                className="old-basic"
-                            >
-                                -
+                                ADD TO CART
                             </button>
                         </div>
-                        <button
-                            onClick={() => handleClick()}
-                            className="old-basic"
-                        >
-                            Add to cart
-                        </button>
                     </div>
                 </div>
             </div>
