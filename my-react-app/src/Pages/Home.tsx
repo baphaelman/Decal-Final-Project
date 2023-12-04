@@ -21,30 +21,53 @@ function Home({ currentItem, setCurrentItem, addToCart }) {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        border: '12px solid var(--red40)',
+        border: '1vw solid var(--red40)',
         borderRadius: '5vw',
         marginLeft: '10vw',
         marginRight: '10vw',
+        transform: 'translate(0, -6vw)',
         padding: '2vw',
         width: '80vw',
+    };
+
+    const goToCartStyle = {
+        position: 'relative',
+        left: '37vw',
+        bottom: '7vw',
+        width: '12vw',
+        height: '6vw',
+        border: 'none',
+        borderRadius: '100vw',
+        color: 'white',
     };
 
     return (
         <>
             <Header />
             <div style={pageStyle}>
-                <div className="heading-0">Menu</div>
+                <button
+                    onClick={() => navigate('/cart')}
+                    style={goToCartStyle}
+                    className="basic go-to-cart-button"
+                >
+                    Go To Cart
+                </button>
+                <div
+                    className="heading-0"
+                    style={{ transform: 'translate(0, -6vw)' }}
+                >
+                    Menu
+                </div>
                 <div style={menuStyle}>
                     {menuItems.map((menuItem) => (
                         <ItemOnMenu
-                            key={menuItem.id}
-                            id={menuItem.id}
+                            key={menuItem.number}
+                            id={menuItem.number}
                             currentItem={currentItem}
                             setCurrentItem={setCurrentItem}
                         />
                     ))}
                 </div>
-                <button onClick={() => navigate('/cart')}>Go To Cart</button>
             </div>
         </>
     );

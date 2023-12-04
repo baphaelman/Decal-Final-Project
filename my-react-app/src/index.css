@@ -3,13 +3,14 @@
 :root{
   --black: black;
   --white: white;
-  --red100: #FF6969;
+  --red100: #ff5757;
   --red80: #FF7E7E;
   --red60: #FF9696;
   --red40: #FFB0B0;
   --red20: #FFDADA;
   --red40hover: #e09797;
-  --red80hover: #e17171;
+  --red80hover: #ffb3b3;
+  --red100hover: #ffb3b3;
 }
 
 @font-face {
@@ -28,18 +29,25 @@ body {
   background-color: var(--red40);
   transition: all ease 0.25s;
 }
-
 .header > a:hover {
   background-color: var(--red40hover);
   cursor: pointer;
 }
 
 /* Menu */
+.go-to-cart-button {
+  background-color: var(--red100);
+  transition: all ease 0.25s;
+}
+.go-to-cart-button:hover {
+  background-color: var(--red100hover);
+  cursor: pointer;
+}
+
 .add-button {
   background-color: var(--red80);
   transition: all ease 0.25s;
 }
-
 .add-button:hover {
   background-color: var(--red80hover);
   cursor: pointer;
@@ -47,7 +55,7 @@ body {
 
 /* General fonts from Figma */
 .heading-0 {
-  font-size: 5vw;
+  font-size: 6vw;
   font-family: Sansation;
 
 }
