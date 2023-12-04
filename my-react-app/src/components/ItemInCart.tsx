@@ -16,7 +16,7 @@ function ItemInCart({ cart, cartNumber, countDecimalDigits }) {
 
     const cartItemStyle = {
         display: 'flex',
-        width: '100%',
+        width: '75vw',
         flexDirection: 'row',
         justifyContent: 'space-between',
     };
@@ -56,6 +56,8 @@ function ItemInCart({ cart, cartNumber, countDecimalDigits }) {
         marginBottom: '1vw',
     };
 
+    const priceTotal = cart[cartNumber].quantity * cart[cartNumber].price;
+
     return (
         <div style={withLineStyle}>
             {cartNumber > 0 && <div style={dividerStyle}></div>}
@@ -71,9 +73,8 @@ function ItemInCart({ cart, cartNumber, countDecimalDigits }) {
                         className="heading-2"
                         style={{ marginTop: '0', marginBottom: '0.5vw' }}
                     >
-                        ${cart[cartNumber].price}
-                        {countDecimalDigits(cart[cartNumber].price) === 1 &&
-                            '0'}
+                        ${priceTotal.toFixed(2)}
+                        {countDecimalDigits(priceTotal.toFixed(2)) === 1 && '0'}
                     </p>
                     <div style={quantityStyle}>
                         <p

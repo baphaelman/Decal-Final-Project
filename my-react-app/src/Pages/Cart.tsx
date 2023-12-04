@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import ItemInCart from '../components/ItemInCart';
 import ChangeQuantity from '../Components/ChangeQuantity';
 
-function Cart({ cart, countDecimalDigits }) {
+function Cart({ cart, quantity, setQuantity, countDecimalDigits }) {
     const navigate = useNavigate();
 
     const borderStyle = {
@@ -17,7 +17,16 @@ function Cart({ cart, countDecimalDigits }) {
         marginRight: '10vw',
         marginBottom: '10vw',
         padding: '2vw',
-        width: '80vw',
+        width: '76vw',
+    };
+
+    const proceedStyle = {
+        color: 'var(--white)',
+        fontFamily: 'Sansation-bold',
+        border: 'none',
+        borderRadius: '1.5vw',
+        padding: '1.5vw',
+        marginBottom: '8vw',
     };
 
     return (
@@ -35,8 +44,12 @@ function Cart({ cart, countDecimalDigits }) {
                         />
                     ))}
                 </div>
-                <button onClick={() => navigate('/time-and-date')}>
-                    Proceed to Time and Date
+                <button
+                    onClick={() => navigate('/time-and-date')}
+                    style={proceedStyle}
+                    className="time-and-date"
+                >
+                    {'TIME AND DATE >'}
                 </button>
             </div>
         </>

@@ -139,3 +139,16 @@ body {
   background-color: var(--red100hover);
   cursor: pointer;
 }
+
+/* Cart */
+.time-and-date {
+  background-color: var(--red100);
+  transition: all ease 0.25s;
+font-size: 2vw;
+}
+.time-and-date:hover {
+  background-color: var(--red100hover);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 2.10vw;
+}
