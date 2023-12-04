@@ -16,15 +16,13 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
     }
 
     const containerStyle = {
-        display: 'flex',
-        alignItems: 'center',
-        margin: '2vw',
+        width: '33%',
     };
 
     const imageStyle = {
-        width: '15vw',
-        height: '15vw',
-        border: '4px solid var(--red40)',
+        width: '5vw',
+        height: '5vw',
+        border: '0.20vw solid var(--red40)',
         borderRadius: '8%',
     };
 
@@ -35,39 +33,33 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
         marginLeft: '1vw',
     };
 
-    const buttonStyle = {
-        width: '8vw',
-        height: '4vw',
+    const outerButtonStyle = {
         border: 'none',
-        borderRadius: '1.5vw',
-    };
-
-    const addToCartStyle = {
         margin: '0',
-        padding: '0',
-        transform: 'translate(0, 0.25vw)',
-        color: 'var(--white)',
+        padding: '1vw',
+        borderRadius: '1vw',
+        display: 'flex',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
     };
 
     return (
         <div style={containerStyle}>
-            <img src={menuItems[id].path} style={imageStyle} />
-            <div style={informationStyle} className="basic">
-                <p className="title">{menuItems[id].name}</p>
-                <p>
-                    ${menuItems[id].price}
-                    {countDecimalDigits(menuItems[id].price) === 1 && '0'}
-                </p>
-                <button
-                    className="basic add-button"
-                    onClick={handleClick}
-                    style={buttonStyle}
-                >
-                    <p style={addToCartStyle} className="old-basic">
-                        Add
+            <button
+                className="add-button"
+                onClick={handleClick}
+                style={outerButtonStyle}
+            >
+                <img src={menuItems[id].path} style={imageStyle} />
+                <div style={informationStyle} className="basic">
+                    <p className="title">{menuItems[id].name}</p>
+                    <p>
+                        ${menuItems[id].price}
+                        {countDecimalDigits(menuItems[id].price) === 1 && '0'}
                     </p>
-                </button>
-            </div>
+                </div>
+            </button>
         </div>
     );
 }

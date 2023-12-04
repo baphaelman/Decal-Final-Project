@@ -76,11 +76,11 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
     const signStyle = {
         position: 'absolute',
         right: '2vw',
+        display: 'flex',
+        flexDirection: 'row',
     };
 
     const plusStyle = {
-        width: '9vw',
-        height: '7vw',
         fontSize: '10vw',
         borderRadius: '100vw 0 0 100vw',
         border: 'none',
@@ -89,8 +89,6 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
     };
 
     const minusStyle = {
-        width: '9vw',
-        height: '7vw',
         fontSize: '10vw',
         borderRadius: '0 100vw 100vw 0',
         border: 'none',
@@ -119,6 +117,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity }) {
         <div>
             <GoToCart />
             <Header />
+            <p className="link">{'< MENU'}</p>
             <div className="page" style={{ marginTop: '0vw' }}>
                 <p className="heading-1" style={{ marginBottom: '1vw' }}>
                     {cartItem.name}

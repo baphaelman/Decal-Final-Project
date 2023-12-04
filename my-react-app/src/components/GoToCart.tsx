@@ -7,20 +7,20 @@ function GoToCart() {
 
     const goToCartStyle = {
         position: 'absolute',
-        right: '5vw',
-        top: '10vw',
-        width: '12vw',
-        height: '6vw',
+        right: '3vw',
+        top: '5vw',
+        width: '5vw',
+        height: '3vw',
         border: 'none',
         borderRadius: '100vw',
         color: 'white',
     };
 
     const imageStyle = {
-        width: '4vw',
-        height: '4vw',
+        width: '2vw',
+        height: '2vw',
         margin: '0',
-        transform: 'translate(0, 0.5vw)',
+        transform: 'translate(0, 0.25vw)',
     };
 
     return (

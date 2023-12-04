@@ -3,6 +3,7 @@
 :root{
   --black: black;
   --white: white;
+  --lightgrey: #b4b4b4;
   --red100: #ff6969;
   --red80: #FF7E7E;
   --red60: #FF9696;
@@ -41,35 +42,50 @@ body {
   margin-top: 10vw;
 }
 
+.link {
+  position: absolute;
+  left: 2vw;
+  top: 8vw;
+  text-decoration: none;
+  font-size: 3vw;
+  transition: all ease 0.25s;
+  font-family: 'Sansation';
+}
+.link:hover {
+  font-size: 4vw;
+  transform: translateY(-1.70vw);
+  cursor: pointer;
+}
+
 /* General fonts from Figma */
 .heading-0 {
-  font-size: 6vw;
+  font-size: 3vw;
   font-family: Sansation;
 
 }
 
 .heading-1 {
-  font-size: 4vw;
+  font-size: 2vw;
   font-family: Sansation;
 }
 
 .heading-2 {
-  font-size: 3vw;
+  font-size: 1.5vw;
   font-family: Sansation;
 }
 
 .title {
-  font-size: 2vw;
+  font-size: 1vw;
   font-family: Varta;
 }
 
 .old-basic {
-  font-size: 2vw;
+  font-size: 1vw;
   font-family: Varta;
 }
 
 .basic {
-  font-size: 1.5vw;
+  font-size: 0.75vw;
   font-family: Varta;
 }
 
@@ -94,11 +110,11 @@ body {
 }
 
 .add-button {
-  background-color: var(--red80);
+  background-color: transparent;
   transition: all ease 0.25s;
 }
 .add-button:hover {
-  background-color: var(--red80hover);
+  background-color: var(--lightgrey);
   cursor: pointer;
 }
 
@@ -106,6 +122,8 @@ body {
 .sign {
   background-color: var(--red40);
   transition: all ease 0.25s;
+  width: 9vw;
+  height: 7vw;
 }
 .sign:hover {
   background-color: var(--red40hover);
