@@ -7,25 +7,24 @@ import menuItems from '../../public/MenuItemsList';
 import ItemOnMenu from '../components/ItemOnMenu';
 import GoToCart from '../components/GoToCart';
 
-function Home({ currentItem, setCurrentItem }) {
+function Home({ currentItem, setCurrentItem, cartNumber }) {
     const menuStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        border: '1vw solid var(--red40)',
+        border: '0.35vw solid var(--red40)',
         borderRadius: '5vw',
         marginLeft: '10vw',
         marginRight: '10vw',
         marginBottom: '10vw',
-        padding: '3vw',
+        padding: '2vw',
         width: '80vw',
     };
 
     return (
         <>
             <Header />
-            <GoToCart />
-            <div className="page">
+            <div className="page" style={{ marginTop: '3vw' }}>
                 <div className="heading-0">Menu</div>
                 <div style={menuStyle}>
                     {menuItems.map((menuItem) => (
@@ -38,6 +37,7 @@ function Home({ currentItem, setCurrentItem }) {
                     ))}
                 </div>
             </div>
+            <GoToCart cartNumber={cartNumber} />
         </>
     );
 }
