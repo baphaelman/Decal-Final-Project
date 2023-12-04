@@ -15,10 +15,10 @@ function App() {
     const [information, setInformation] = useState({});
     const [cart, setCart] = useState([
         {
-            section: 'Miscellaneous',
-            name: 'paper bag',
+            category: 'Miscellaneous',
+            name: 'Paper Bag',
             price: 0.3,
-            image: './public/sushi_icon.png',
+            path: './public/sushi_icon.png',
             id: 0,
             quantity: 1,
             cartNumber: 0,
@@ -41,9 +41,10 @@ function App() {
         cartNumber: cartNumber,
     };
 
-    useEffect(() => {
-        console.log('Order:', order);
-    }, [order]);
+    function countDecimalDigits(number) {
+        const decimalPart = number.toString().split('.')[1];
+        return decimalPart.length;
+    }
 
     return (
         <>
@@ -56,6 +57,7 @@ function App() {
                                 currentItem={currentItem}
                                 setCurrentItem={setCurrentItem}
                                 cartNumber={cartNumber}
+                                countDecimalDigits={countDecimalDigits}
                             />
                         }
                     />
@@ -76,12 +78,19 @@ function App() {
                                 quantity={quantity}
                                 setQuantity={setQuantity}
                                 cartNumber={cartNumber}
+                                countDecimalDigits={countDecimalDigits}
                             />
                         }
                     />
                     <Route
                         path="/cart"
-                        element={<Cart cart={cart} cartNumber={cartNumber} />}
+                        element={
+                            <Cart
+                                cart={cart}
+                                cartNumber={cartNumber}
+                                countDecimalDigits={countDecimalDigits}
+                            />
+                        }
                     />
                     <Route
                         path="/time-and-date"

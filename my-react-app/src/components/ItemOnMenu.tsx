@@ -2,18 +2,13 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import menuItems from '../../public/MenuItemsList';
 
-function ItemOnMenu({ id, setCurrentItem, currentItem }) {
+function ItemOnMenu({ id, setCurrentItem, currentItem, countDecimalDigits }) {
     const navigate = useNavigate();
 
     const handleClick = () => {
         setCurrentItem(menuItems[id]);
         navigate('/menu-item');
     };
-
-    function countDecimalDigits(number) {
-        const decimalPart = number.toString().split('.')[1];
-        return decimalPart.length;
-    }
 
     const containerStyle = {
         width: '33%',
@@ -24,6 +19,7 @@ function ItemOnMenu({ id, setCurrentItem, currentItem }) {
         height: '5vw',
         border: '0.20vw solid var(--red40)',
         borderRadius: '8%',
+        objectFit: 'cover',
     };
 
     const informationStyle = {

@@ -3,30 +3,21 @@ import { useNavigate } from 'react-router-dom';
 
 import Header from '../Components/Header';
 import GoToCart from '../Components/GoToCart';
+import ChangeQuantity from '../Components/ChangeQuantity';
 
-function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
+function MenuItem({
+    addToCart,
+    cartItem,
+    quantity,
+    setQuantity,
+    cartNumber,
+    countDecimalDigits,
+}) {
     const navigate = useNavigate();
-
-    function countDecimalDigits(number) {
-        const decimalPart = number.toString().split('.')[1];
-        return decimalPart.length;
-    }
 
     const handleClick = () => {
         addToCart(cartItem);
         navigate('/');
-    };
-
-    const increase = () => {
-        if (quantity < 10) {
-            setQuantity(quantity + 1);
-        }
-    };
-
-    const decrease = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
-        }
     };
 
     const imageStyle = {
@@ -50,6 +41,7 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
         alignItems: 'center',
         width: '50vw',
         margin: '0',
+        objectFit: 'cover',
     };
 
     const lineStyle = {
@@ -75,47 +67,18 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
         alignItems: 'center',
     };
 
-    const signStyle = {
-        position: 'absolute',
-        right: '2vw',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        width: '65%',
-    };
-
-    const plusStyle = {
-        fontSize: '5vw',
-        borderRadius: '100vw 0 0 100vw',
-        border: 'none',
-        borderRight: '0.25vw solid var(--red100)',
-        color: 'var(--white)',
-    };
-
-    const minusStyle = {
-        fontSize: '5vw',
-        borderRadius: '0 100vw 100vw 0',
-        border: 'none',
-        borderLeft: '0.25vw solid var(--red100)',
-        color: 'var(--white)',
-    };
-
-    const boldStyle = {
-        fontFamily: 'Sansation-bold',
-        margin: '0',
-        padding: '0',
-        transform: 'translate(0, -1.5vw)',
-    };
-
     const addtoCartStyle = {
         color: 'var(--white)',
         fontSize: '2vw',
         fontFamily: 'Sansation-bold',
-        width: '17vw',
-        height: '3.3vw',
+        width: '10vw',
+        height: '7vw',
         border: 'none',
-        borderRadius: '100vw',
+        borderRadius: '2vw',
         marginTop: '2vw',
+        position: 'absolute',
+        right: '25vw',
+        bottom: '7vw',
     };
 
     return (
@@ -149,40 +112,28 @@ function MenuItem({ addToCart, cartItem, quantity, setQuantity, cartNumber }) {
                             {cartItem.description}
                         </p>
                         <div style={quantityContainerStyle}>
-                            <p className="heading-2">
+                            <p className="heading-2" style={{ width: '20vw' }}>
                                 quantity: {cartItem.quantity}
                             </p>
-                            <div style={signStyle}>
+                            <ChangeQuantity
+                                quantity={quantity}
+                                setQuantity={setQuantity}
+                            />
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    width: '100%',
+                                    justifyContent: 'center',
+                                }}
+                            >
                                 <button
-                                    className="heading-2 sign"
-                                    onClick={increase}
-                                    style={plusStyle}
+                                    onClick={() => handleClick()}
+                                    className="old-basic add-to-cart"
+                                    style={addtoCartStyle}
                                 >
-                                    <p style={boldStyle}>+</p>
-                                </button>
-                                <button
-                                    onClick={decrease}
-                                    className="heading-2 sign"
-                                    style={minusStyle}
-                                >
-                                    <p style={boldStyle}>-</p>
+                                    ADD TO CART
                                 </button>
                             </div>
-                        </div>
-                        <div
-                            style={{
-                                display: 'flex',
-                                width: '100%',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <button
-                                onClick={() => handleClick()}
-                                className="old-basic add-to-cart"
-                                style={addtoCartStyle}
-                            >
-                                ADD TO CART
-                            </button>
                         </div>
                     </div>
                 </div>

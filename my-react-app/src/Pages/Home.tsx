@@ -7,13 +7,13 @@ import menuItems from '../../public/MenuItemsList';
 import ItemOnMenu from '../components/ItemOnMenu';
 import GoToCart from '../components/GoToCart';
 
-function Home({ currentItem, setCurrentItem, cartNumber }) {
+function Home({ currentItem, setCurrentItem, cartNumber, countDecimalDigits }) {
     const menuStyle = {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         border: '0.35vw solid var(--red40)',
-        borderRadius: '5vw',
+        borderRadius: '3vw',
         marginLeft: '10vw',
         marginRight: '10vw',
         marginBottom: '10vw',
@@ -33,6 +33,7 @@ function Home({ currentItem, setCurrentItem, cartNumber }) {
                             id={menuItem.number}
                             currentItem={currentItem}
                             setCurrentItem={setCurrentItem}
+                            countDecimalDigits={countDecimalDigits}
                         />
                     ))}
                 </div>
