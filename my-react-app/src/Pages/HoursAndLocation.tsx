@@ -8,7 +8,7 @@ function HoursAndLocation() {
         display: 'flex',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        border: '12px solid var(--red40)',
+        border: '6px solid var(--red40)',
         borderRadius: '5vw',
         marginLeft: '10vw',
         marginRight: '10vw',
@@ -28,7 +28,7 @@ function HoursAndLocation() {
                     <div style={{ textAlign: 'center' }}>
                     <img src={sushi}
                     alt="Description of the image"
-                    style={{ width: '50%', height: 'auto', borderRadius: '20px', border: '6px solid var(--red40)'}}
+                    style={{ width: '50%', height: 'auto', borderRadius: '20px', border: '4px solid var(--red40)'}}
                     />
                     </div>
             </div>
