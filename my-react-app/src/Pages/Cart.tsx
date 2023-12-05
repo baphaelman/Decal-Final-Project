@@ -47,7 +47,7 @@ function Cart({ cart, quantity, setQuantity, countDecimalDigits }) {
                 <button
                     onClick={() => navigate('/time-and-date')}
                     style={proceedStyle}
-                    className="time-and-date"
+                    className="proceed"
                 >
                     {'TIME AND DATE >'}
                 </button>

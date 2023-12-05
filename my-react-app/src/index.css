@@ -146,12 +146,12 @@ body {
 }
 
 /* Cart */
-.time-and-date {
+.proceed {
   background-color: var(--red100);
   transition: all ease 0.25s;
 font-size: 2vw;
 }
-.time-and-date:hover {
+.proceed:hover {
   background-color: var(--red100hover);
   cursor: pointer;
   text-decoration: underline;
