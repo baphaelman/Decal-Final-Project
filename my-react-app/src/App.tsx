@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './Pages/Home';
 import HoursAndLocation from './Pages/HoursAndLocation';
@@ -33,7 +34,85 @@ function App() {
         setOrder([cart]);
         setCartNumber(cartNumber + 1);
         setQuantity(1);
+
+        handleOrderSubmit();
     };
+
+    // Fetch all books on initial render
+    useEffect(() => {
+        fetchOrders()
+    }, [])
+
+    // Fetch all books
+    const fetchOrders = async () => {
+        // Send GET request to 'books/all' endpoint
+        axios
+        .get('http://localhost:4001/orders/all')
+        .then(response => {
+            // Update the books state
+            setOrder(response.data)
+
+        })
+        .catch(error => console.error(`There was an error retrieving the order list: ${error}`))
+    }
+
+    // Reset all input fields
+    const handleInputsReset = () => {
+        setOrder([]);
+        setInformation({});
+        setCart([
+            {
+                category: 'Miscellaneous',
+                name: 'Paper Bag',
+                price: 0.3,
+                path: './public/sushi_icon.png',
+                id: 0,
+                quantity: 1,
+                cartNumber: 0,
+            },
+        ]);
+        setCurrentItem(null);
+        setQuantity(1);
+        setCartNumber(1);
+    }
+
+    // Create new book
+    const handleOrderCreate = () => {
+        // Send POST request to 'books/create' endpoint
+        axios
+        .post('http://localhost:4001/orders/create', {
+            order: order,
+            information: information,
+            cart: cart,
+            cartNumber: cartNumber,
+            currentItem: currentItem,
+            quantity: quantity
+        })
+        .then(res => {
+            console.log(res.data)
+
+            // Fetch all books to refresh
+            // the books on the bookshelf list
+            fetchOrders()
+        })
+        .catch(error => console.error(`There was an error creating the ${order} order: ${error}`))
+    }
+
+    // Submit new book
+    const handleOrderSubmit = () => {
+        // Check if all fields are filled
+        if (order.length > 0 && information && cart.length > 0) {
+        // Create new book
+        handleOrderCreate()
+
+        console.info(`Order ${order} with ${cart} added.`)
+
+        // Reset all input fields
+        handleInputsReset()
+        }
+    }
+
+
 
     const cartItem = {
         ...currentItem,
