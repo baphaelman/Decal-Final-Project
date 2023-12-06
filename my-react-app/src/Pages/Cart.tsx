@@ -26,7 +26,7 @@ function Cart({ cart, quantity, setQuantity, countDecimalDigits }) {
         border: 'none',
         borderRadius: '1.5vw',
         padding: '1.5vw',
-        marginBottom: '8vw',
+        transform: 'translate(0, -6vw)',
     };
 
     return (

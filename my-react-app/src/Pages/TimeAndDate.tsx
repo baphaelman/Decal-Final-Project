@@ -91,6 +91,14 @@ function TimeAndDate({ information, setInformation }) {
     return (
         <>
             <Header />
+            <p
+                className="link"
+                onClick={() => {
+                    navigate('/cart');
+                }}
+            >
+                {'< CART'}
+            </p>
             <div className="page" style={{ marginTop: '6vw' }}>
                 <div className="heading-0">Time and Date</div>
                 <div style={borderStyle}>
