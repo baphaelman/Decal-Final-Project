@@ -10,7 +10,7 @@ import GoToCart from '../components/GoToCart';
 function Home({ currentItem, setCurrentItem, cartNumber, countDecimalDigits }) {
     const menuStyle = {
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         flexWrap: 'wrap',
         border: '0.35vw solid var(--red40)',
         borderRadius: '3vw',
@@ -28,13 +28,25 @@ function Home({ currentItem, setCurrentItem, cartNumber, countDecimalDigits }) {
                 <div className="heading-0">Menu</div>
                 <div style={menuStyle}>
                     {menuItems.map((menuItem) => (
-                        <ItemOnMenu
-                            key={menuItem.number}
-                            id={menuItem.number}
-                            currentItem={currentItem}
-                            setCurrentItem={setCurrentItem}
-                            countDecimalDigits={countDecimalDigits}
-                        />
+                        <React.Fragment key={menuItem.number}>
+                            <ItemOnMenu
+                                key={menuItem.number}
+                                id={menuItem.number}
+                                currentItem={currentItem}
+                                setCurrentItem={setCurrentItem}
+                                countDecimalDigits={countDecimalDigits}
+                            />
+                            {menuItem.number % 3 === 2 && (
+                                <div
+                                    style={{
+                                        width: '75vw',
+                                        height: '0.25vw',
+                                        backgroundColor: 'var(--red20)',
+                                        borderRadius: '100vw',
+                                    }}
+                                />
+                            )}
+                        </React.Fragment>
                     ))}
                 </div>
             </div>

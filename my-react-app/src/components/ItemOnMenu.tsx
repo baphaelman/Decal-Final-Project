@@ -26,6 +26,7 @@ function ItemOnMenu({ id, setCurrentItem, currentItem, countDecimalDigits }) {
         width: '15vw',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'flex-start',
         marginLeft: '1vw',
     };
 
@@ -48,9 +49,9 @@ function ItemOnMenu({ id, setCurrentItem, currentItem, countDecimalDigits }) {
                 style={outerButtonStyle}
             >
                 <img src={menuItems[id].path} style={imageStyle} />
-                <div style={informationStyle} className="basic">
+                <div style={informationStyle}>
                     <p className="title">{menuItems[id].name}</p>
-                    <p>
+                    <p className="old-basic" style={{ marginTop: '0' }}>
                         ${menuItems[id].price}
                         {countDecimalDigits(menuItems[id].price) === 1 && '0'}
                     </p>

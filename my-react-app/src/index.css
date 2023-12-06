@@ -76,7 +76,12 @@ body {
 }
 
 .title {
-  font-size: 1vw;
+  font-size: 1.15vw;
+  font-family: Varta;
+}
+
+.big-basic {
+  font-size: 1.27vw;
   font-family: Varta;
 }
 
@@ -141,14 +146,30 @@ body {
 }
 
 /* Cart */
-.time-and-date {
+.proceed {
   background-color: var(--red100);
   transition: all ease 0.25s;
 font-size: 2vw;
 }
-.time-and-date:hover {
+.proceed:hover {
   background-color: var(--red100hover);
   cursor: pointer;
   text-decoration: underline;
   font-size: 2.10vw;
+}
+
+/* Location and Hours */
+.map-link {
+  transition: all ease 0.25s;
+}
+.map-link:hover {
+  cursor: pointer;
+}
+
+.map-link > img {
+  transition: all ease 0.25s;
+  border: 0.25vw solid var(--red40);
+}
+.map-link > img:hover {
+  border: 0.40vw solid var(--red40hover);
 }
